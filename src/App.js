@@ -1,26 +1,15 @@
 import React from 'react';
-import { index, create, destroy } from './api';
+import TodoItem from './components/TodoItem';
 
 class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>Hello World</h1>
-        <button onClick={() => index().then(json => console.log(json))}>
-          GET /todos
-        </button>
-        <button
-          onClick={() =>
-            create('first todo', 'do it').then(json => console.log(json))
-          }
-        >
-          POST /todos
-        </button>
-        <button
-          onClick={() => destroy('削除するID').then(json => console.log(json))}
-        >
-          DELETE /todos
-        </button>
+        <TodoItem
+          title="Todo1のタイトル"
+          text="Todo1のテキスト"
+          createdAt="Todo1の作成日時"
+        />
       </div>
     );
   }
