@@ -7,14 +7,14 @@ class TodoItem extends React.Component {
     const title = this.props.title;
     const text = this.props.text;
     const createdAt = this.props.createdAt;
+    const todosUpdater = this.props.todosUpdater;
     return (
       <tr>
         <td>{title}</td>
         <td>{text}</td>
         <td>{createdAt}</td>
         <td>
-          {/* 削除APIを呼んだあとに画面を更新する（超邪道） */}
-          <button onClick={() => destroy(id).then(() => window.history.go())}>
+          <button onClick={() => destroy(id).then(() => todosUpdater())}>
             Delete
           </button>
         </td>
